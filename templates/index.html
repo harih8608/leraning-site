@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document Learning Platform</title>
+</head>
+<body>
+	<h1>Document Learning Platform</h1>
+	<ul>
+		{% for file in files %}
+			<li><a href="{{ url_for('static', filename=file) }}">{{ file }}</a></li>
+		{% endfor %}
+	</ul>
+	<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+		<input type="file" name="file">
+		<input type="submit" value="Upload">
+	</form>
+</body>
+</html>
